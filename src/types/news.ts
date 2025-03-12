@@ -16,7 +16,8 @@ export type NewsCategory =
   | "politics"
   | "world"
   | "technology"
-  | "general";
+  | "general"
+  | "all";
 
 export interface RssFeed {
   id: string;

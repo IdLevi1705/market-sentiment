@@ -1,9 +1,9 @@
-// src/pages/news.tsx
 import React, { useState } from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout/Layout";
 import NewsCard from "@/components/NewsCard/NewsCard";
 import NewsList from "@/components/NewsList/NewsList";
+import NewsSentimentGraph from "@/components/NewsSentimentGraph/NewsSentimentGraph";
 import { useNews } from "@/hooks/useNews";
 import { NEWS_CATEGORIES } from "@/constants/newsCategories";
 import { NewsCategory } from "@/types/news";
@@ -16,7 +16,7 @@ const NewsPageContainer = styled.div`
 `;
 
 const NewsPageHeader = styled.div`
-  margin-bottom: ${({ theme }) => theme.space[6]};
+  margin-bottom: ${({ theme }) => theme.space[4]};
 `;
 
 const NewsPageTitle = styled.h1`
@@ -87,6 +87,7 @@ const NewsPage: React.FC = () => {
     error,
     retryFetch,
     changeCategory,
+    historicalSentiment,
   } = useNews(selectedCategory);
 
   const handleCategoryChange = (category?: NewsCategory) => {
@@ -112,6 +113,14 @@ const NewsPage: React.FC = () => {
               Latest news from financial, political, and global sources
             </NewsPageDescription>
           </NewsPageHeader>
+
+          {/* Enhanced Sentiment Graph Component */}
+          <NewsSentimentGraph
+            news={news}
+            historicalSentiment={historicalSentiment}
+            loading={loading}
+            error={error}
+          />
 
           <CategoryTabs>
             <CategoryTab

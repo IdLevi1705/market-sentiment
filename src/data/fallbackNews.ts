@@ -94,8 +94,8 @@ export const fallbackNewsItems: NewsItem[] = [
     publishedAt: new Date(Date.now() - 18000000).toISOString(), // 5 hours ago
     category: "world",
     sentiment: {
-      score: 0.35,
-      comparative: 0.35,
+      score: 0.58,
+      comparative: 0.58,
       positive: ["positively", "stimulus", "boosting"],
       negative: ["slowing"],
     },
